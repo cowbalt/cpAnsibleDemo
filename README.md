@@ -24,7 +24,7 @@ Installation instructions
 --------------
 1. Enable access to Microsoft Store on Domain joined machines
  - Usually the WSUS Policy prevents Windows 10 users to connect to Microsoft Store as organizations have configured local  Windows Server Update Services (WSUS) preventing these machines to connect to Microsoft Store in order to download apps for Windows 10.
- - To be able to download a Linux distribution as a app from Microsoft Store to use as Windows Subsystem for Linux (WSL). Open the registry by tuping regedit in te start menu and edit this value:
+ - To be able to download a Linux distribution as a app from Microsoft Store to use as Windows Subsystem for Linux (WSL). Open the registry by typing regedit in te start menu and edit this value:
 ```
 Hive: HKEY_LOCAL_MACHINE 
 Key path: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate 
@@ -50,7 +50,7 @@ sudo apt-get install -y ansible python-pip mtools unzip
 pip install netaddr
 ansible --version
 ```
-#### NOTE: After this step verify that Ansibnle has been updated to latest version. ~2.7 or laters. 
+#### NOTE: After this step verify that Ansible has been updated to latest version. ~2.7 or laters. 
 
 4. Clone and copy the Ansible Module - check_point_mgmt by Check Point® to the correct location
 ```
@@ -79,7 +79,7 @@ chmod -Rv o-rwx ./cpAnsibleDemo
 ansible_user=sysadmin
 ansible_ssh_pass=mysecretpassword!
 ansible_python_interpreter=/usr/bin/python
-# Optional (variables detailing the Check Point's management server access): (these are already cinfugryed in the ansible roles packages/ for the demo and can be ignored)
+# Optional (variables detailing the Check Point's management server access): (these are already configured in the ansible roles packages/ for the demo and can be ignored)
 # mgmt_server=[management server's IP address. In case of a multi-domain setup, provide the IP address of the MDS]
 # mgmt_user=[Check Point admin username]
 # mgmt_password=[Check Point admin password]
@@ -93,11 +93,11 @@ ansible_python_interpreter=/usr/bin/python
 ```
 Click  "Start Menu" > "This PC" > "Properties" > "Advanced System Setings" > "Enviroment Variables" > "Path" > "Edit" > "New" > "C:\Program Files (x86)\VMware\VMware Workstation"
 ```
-This will add the path to vmrun.exe. This is most probobly "C:\Program Files (x86)\VMware\VMware Workstation". but you should verify that on your computer.
+This will add the path to vmrun.exe. This is most probably "C:\Program Files (x86)\VMware\VMware Workstation". but you should verify that on your computer.
 
 8. initialise the demo enviroment
 This step will install Gaia on a virtual machine called template, The playbook will ask the user for some information. The installation process will run twice and two snapshots will be taken, one for security management only installations using Linux gaia kernel 3.10 (this snapshot is called sm-pre-ftw) and one for Security Gateway and Stand Alone (mgmt+gw on same machine) installations using Linux gaia kernel 2.6.18 (this snapshot is called pre-ftw). 
-#### NOTE: The ansible plabooks must be executen from local location.
+#### NOTE: The ansible plyabooks must be executed from local location.
 #### NOTE: The installation requires user interaction twice when the Gaia installation boot process starts, (as it starts twice).
 #### NOTE: The VM template ip is default configured to 172.27.254.3 this can be changed by editing the tempate_ip line var in cpAnsibleDemo/group_vars/all
 ```
@@ -109,7 +109,7 @@ ansible-playbook download_and_install_demo_web_server.yml
 
 Dependencies
 ------------
-The demo is currently using vmnat8 ip-range 172.27.254.0/24 this can be adjusted by changeing the ip addresses in thefollowing files
+The demo is currently using vmnat8 ip-range 172.27.254.0/24 this can be adjusted by changeing the ip addresses in the following files
 ```
 vi cpAnsibleDemo/group_vars/all
 vi cpAnsibleDemo/group_vars/mds_var.yml
